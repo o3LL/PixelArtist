@@ -1,4 +1,9 @@
 import React from 'react';
+
+// Constants
+import { COLORS } from '../constants';
+
+// Redux
 import { connect } from "react-redux";
 
 class Cell extends React.Component {
@@ -27,12 +32,12 @@ class Cell extends React.Component {
     }
 
     clickCell(event) {
-        let selectedColor = 'white';
+        let selectedColor = 'white'; // Maybe replace by transparent
         let isRemove = false;
 
         if (event.nativeEvent.which === 1) {
             // If rightclick
-            selectedColor = this.props.selectedColor || 'yellow';
+            selectedColor = this.props.selectedColor || COLORS[0];
         } else if (event.nativeEvent.which === 3) {
             // If leftclick
             event.preventDefault();
@@ -41,7 +46,7 @@ class Cell extends React.Component {
 
         this.setState({
             clicked: true,
-            color: selectedColor || 'yellow'
+            color: selectedColor
         });
 
         // Saving current art in localStorage

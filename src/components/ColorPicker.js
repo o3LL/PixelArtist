@@ -1,4 +1,9 @@
 import React from 'react';
+
+// Constants
+import { COLORS } from '../constants';
+
+// Redux
 import { connect } from "react-redux";
 import { updateSelectedColor } from "../actions";
 
@@ -6,7 +11,7 @@ class ColorPicker extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            colors: ['#ffd52d', '#fe982b', '#fe68ba', '#3499fe', '#6cda6d'],
+            colors: COLORS,
         };
 
         this.changeSelectedColor = this.changeSelectedColor.bind(this);
